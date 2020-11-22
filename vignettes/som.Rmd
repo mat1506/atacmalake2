@@ -10,5 +10,16 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(atacmalake2)
+#library(atacmalake2)
 ```
+
+
+Supplementary Figure
+
+```{r}
+
+hist(cars$speed)
+
+```
+
+Frist test
