@@ -1,180 +1,270 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
+% Template for PLoS
+% Version 3.5 March 2018
 %
-\documentclass[
-  english,
-  man]{apa6}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
+% % % % % % % % % % % % % % % % % % % % % %
+%
+% -- IMPORTANT NOTE
+%
+% This template contains comments intended
+% to minimize problems and delays during our production
+% process. Please follow the template instructions
+% whenever possible.
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% Once your paper is accepted for publication,
+% PLEASE REMOVE ALL TRACKED CHANGES in this file
+% and leave only the final text of your manuscript.
+% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
+% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
+%
+%
+% There are no restrictions on package use within the LaTeX files except that
+% no packages listed in the template may be deleted.
+%
+% Please do not include colors or graphics in the text.
+%
+% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- FIGURES AND TABLES
+%
+% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
+%
+% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
+% - Figures should be uploaded separately from your manuscript file.
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission.
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% For figure citations, please use "Fig" instead of "Figure".
+% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
+%
+% Tables should be cell-based and may not contain:
+% - spacing/line breaks within cells to alter layout or alignment
+% - do not nest tabular environments (no tabular environments within tabular environments)
+% - no graphics or colored text (cell background color/shading OK)
+% See http://journals.plos.org/plosone/s/tables for table guidelines.
+%
+% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- EQUATIONS, MATH SYMBOLS, SUBSCRIPTS, AND SUPERSCRIPTS
+%
+% IMPORTANT
+% Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
+%
+% For inline equations, please be sure to include all portions of an equation in the math environment.
+%
+% Do not include text that is not math in the math environment.
+%
+% Please add line breaks to long display equations when possible in order to fit size of the column.
+%
+% For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
+%
+% When adding superscript or subscripts outside of brackets/braces, please group using {}.
+%
+% Do not use \cal for caligraphic font.  Instead, use \mathcal{}
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% Please contact latex@plos.org with any questions.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% Use Unicode characters when possible
+\usepackage[utf8x]{inputenc}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+% \usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace}
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Use the PLoS provided BiBTeX style
+% \bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
 \makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
+\renewcommand{\@biblabel}[1]{\quad#1.}
 \makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={The title},
-  pdfauthor={First Author1 \& Ernst-August Doelle1,2},
-  pdflang={en-EN},
-  pdfkeywords={keywords},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+
+% Pandoc citation processing
+
+
+
+
+\usepackage{forarray}
+\usepackage{xstring}
+\newcommand{\getIndex}[2]{
+  \ForEach{,}{\IfEq{#1}{\thislevelitem}{\number\thislevelcount\ExitForEach}{}}{#2}
+}
+
+\setcounter{secnumdepth}{0}
+
+\newcommand{\getAff}[1]{
+  \getIndex{#1}{deuc,ieb,uccs,ipe,geup,iact}
+}
+
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-% Make \paragraph and \subparagraph free-standing
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-% Manuscript styling
-\usepackage{upgreek}
-\captionsetup{font=singlespacing,justification=justified}
-
-% Table formatting
-\usepackage{longtable}
-\usepackage{lscape}
-% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
-\usepackage{multirow}		% Table styling
-\usepackage{tabularx}		% Control Column width
-\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
-\usepackage{threeparttablex}            % Lets threeparttable work with longtable
-
-% Create new environments so endfloat can handle them
-% \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
-\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
-
-% Enables adjusting longtable caption width to table width
-% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
-\makeatletter
-\newcommand\LastLTentrywidth{1em}
-\newlength\longtablewidth
-\setlength{\longtablewidth}{1in}
-\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
-
-% \setlength{\parindent}{0.5in}
-% \setlength{\parskip}{0pt plus 0pt minus 0pt}
-
-% \usepackage{etoolbox}
-\makeatletter
-\patchcmd{\HyOrg@maketitle}
-  {\section{\normalfont\normalsize\abstractname}}
-  {\section*{\normalfont\normalsize\abstractname}}
-  {}{\typeout{Failed to patch abstract.}}
-\patchcmd{\HyOrg@maketitle}
-  {\section{\protect\normalfont{\@title}}}
-  {\section*{\protect\normalfont{\@title}}}
-  {}{\typeout{Failed to patch title.}}
-\makeatother
-\shorttitle{Title}
-\keywords{keywords\newline\indent Word count: X}
-\DeclareDelayedFloatFlavor{ThreePartTable}{table}
-\DeclareDelayedFloatFlavor{lltable}{table}
-\DeclareDelayedFloatFlavor*{longtable}{table}
-\makeatletter
-\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
-\makeatother
-\usepackage{lineno}
-
-\linenumbers
-\usepackage{csquotes}
-\ifxetex
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\else
-  \usepackage[shorthands=off,main=english]{babel}
-\fi
-
-\title{The title}
-\author{First Author\textsuperscript{1} \& Ernst-August Doelle\textsuperscript{1,2}}
-\date{}
-
-
-\authornote{
-
-Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-Enter author note here.
-
-The authors made the following contributions. First Author: Conceptualization, Writing - Original Draft Preparation, Writing - Review \& Editing; Ernst-August Doelle: Writing - Review \& Editing.
-
-Correspondence concerning this article should be addressed to First Author, Postal address. E-mail: \href{mailto:my@email.com}{\nolinkurl{my@email.com}}
-
-}
-
-\affiliation{\vspace{0.5cm}\textsuperscript{1} Wilhelm-Wundt-University\\\textsuperscript{2} Konstanz Business School}
-
-\abstract{
-One or two sentences providing a \textbf{basic introduction} to the field, comprehensible to a scientist in any discipline.
-
-Two to three sentences of \textbf{more detailed background}, comprehensible to scientists in related disciplines.
-
-One sentence clearly stating the \textbf{general problem} being addressed by this particular study.
-
-One sentence summarizing the main result (with the words ``\textbf{here we show}'' or their equivalent).
-
-Two or three sentences explaining what the \textbf{main result} reveals in direct comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.
-
-One or two sentences to put the results into a more \textbf{general context}.
-
-Two or three sentences to provide a \textbf{broader perspective}, readily comprehensible to a scientist in any discipline.
-}
-
-
 
 \begin{document}
-\maketitle
+\vspace*{0.2in}
 
+% Title must be 250 characters or less.
+\begin{flushleft}
+{\Large
+\textbf\newline{The recent history of high elevation Lagunas Miscanti and Miñiques,
+Chilean Altiplano, as revealed by biomarker study} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+}
+\newline
+% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
+\\
+Matías Frugone-Álvarez\textsuperscript{1,2}\textsuperscript{\getAff{deuc,ieb}},
+Blas Valero-Garcés \textsuperscript{1,2}\textsuperscript{\getAff{ipe}},
+Ricardo Prego\textsuperscript{1,2}\textsuperscript{\getAff{uccs,ciba,geup}},
+Patricia Bernárdez\textsuperscript{1,2}\textsuperscript{\getAff{iact}},
+Ricardo Prego\textsuperscript{1,2}\textsuperscript{\getAff{uccs,ciba,geup}},
+Patricia Bernárdez\textsuperscript{1,2}\textsuperscript{\getAff{iact}}\\
+\bigskip
+\textbf{\getAff{deuc}}Departamento de Ecología \& Centro UC Desierto de Atacama, Pontificia
+Universidad Católica de Chile, Santiago, Chile.\\
+\textbf{\getAff{ieb}}Instituto de Ecología y Biodiversidady (IEB), Santiago, Chile\\
+\textbf{\getAff{uccs}}Instituto Pirenaico de Ecología (IPE-CSIC), Zaragoza, Spain.\\
+\textbf{\getAff{ipe}}Centro de Investigación en Biodiversidad y Ambientes Sustentables
+(CIBAS), Chile\\
+\textbf{\getAff{geup}}Department of Geology and Environmental Science, University of
+Pittsburgh, Pittsburgh, USA\\
+\textbf{\getAff{iact}}Instituto Andaluz de Ciencias de la Tierra (CSIC-UGR), Granada, Spain\\
+\bigskip
+\end{flushleft}
+% Please keep the abstract below 300 words
+\section*{Abstract}
+Situated in the Chilean Altiplano, the neighboring lakes of Miscanti and
+Miñiques are of interest due to their unique location and ability to
+furnish detailed continuous high elevation biogeochemical records.
+Accordingly, sediment cores were acquired for centennial scale
+investigation of regional climates of this region of South America over
+the Holocene. Coring in the two lakes spanned two different but
+overlapping time periods that extend from 2500 BCE to 1905 CE as
+determined by 14C dating supported by U/Th and 210Pb/137Cs measurements.
+Our study has revealed distinct limnological phases within the lakes
+that are characterized by markedly different biomarker contents. The
+contributions of macrophytes and algae were determined by the relative
+contributions of multiple source-diagnostic compounds (i.e.~n-C17 and
+n-C23). Further, core glycerol dialkyl glycerol tetraethers (GDGTs) were
+used to examine physical changes in the lake such as salinity (ACE
+index) and lake level (thaum). Finally, periods of likely euxinic
+conditions were identified based on the presence of recently described
+S-GDGTs. In Laguna Miñiques, the earliest period (2500-1910 BCE) studied
+was characterized by a transition from low to high lake levels ending
+with a sharp increase in salinity and collapse of stratification and
+euxinia. This time was followed by an extended period (1910-139 BCE) of
+high salinity that saw a decline of aquatic macrophytes and rise of
+unicellular algae. This picture reversed in the final period (139
+BCE-1670 CE) where the molecular records suggest that salinity dropped
+sharply and stabilized, macrophytes recovered, and the relative
+contributions from algae declined. Complementing this record, Laguna
+Miscanti displays just two limnologically distinct periods. The first
+(212-920 CE) is revealed to be physically and chemically stable as in
+Miñiques, but with potential variations in productivity. The most recent
+time period (920-1905 CE) is shown to be a period of increasing salinity
+with episodic events of lake level change and euxinia.
+
+% Please keep the Author Summary between 150 and 200 words
+% Use first person. PLOS ONE authors please skip this step.
+% Author Summary not valid for PLOS ONE submissions.
+
+\linenumbers
+
+% Use "Eq" instead of "Equation" for equation citations.
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
 
-We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study.
+We report how we determined our sample size, all data exclusions (if
+any), all manipulations, and all measures in the study.
 
 \hypertarget{participants}{%
 \subsection{Participants}\label{participants}}
@@ -188,7 +278,37 @@ We report how we determined our sample size, all data exclusions (if any), all m
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-We used R (Version 4.0.3; R Core Team, 2020) and the R-package \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020) for all our analyses.
+We used R {[}\protect\hyperlink{ref-R-base}{1}{]} and the R-packages
+\emph{bookdown} {[}\protect\hyperlink{ref-R-bookdown}{2}{]}, \emph{citr}
+{[}\protect\hyperlink{ref-R-citr}{3}{]}, \emph{dplyr}
+{[}\protect\hyperlink{ref-R-dplyr}{4}{]}, \emph{forcats}
+{[}\protect\hyperlink{ref-R-forcats}{5}{]}, \emph{gamlss}
+{[}\protect\hyperlink{ref-R-gamlss}{6}--\protect\hyperlink{ref-R-gamlss.dist}{8}{]},
+\emph{gamlss.data} {[}\protect\hyperlink{ref-R-gamlss.data}{7}{]},
+\emph{gamlss.dist} {[}\protect\hyperlink{ref-R-gamlss.dist}{8}{]},
+\emph{ggplot2} {[}\protect\hyperlink{ref-R-ggplot2}{9}{]}, \emph{ggpubr}
+{[}\protect\hyperlink{ref-R-ggpubr}{10}{]}, \emph{ggthemes}
+{[}\protect\hyperlink{ref-R-ggthemes}{11}{]}, \emph{gridExtra}
+{[}\protect\hyperlink{ref-R-gridExtra}{12}{]}, \emph{kableExtra}
+{[}\protect\hyperlink{ref-R-kableExtra}{13}{]}, \emph{knitr}
+{[}\protect\hyperlink{ref-R-knitr}{14}{]}, \emph{lattice}
+{[}\protect\hyperlink{ref-R-lattice}{15}{]}, \emph{MASS}
+{[}\protect\hyperlink{ref-R-MASS}{16}{]}, \emph{nlme}
+{[}\protect\hyperlink{ref-R-nlme}{17}{]}, \emph{papaja}
+{[}\protect\hyperlink{ref-R-papaja}{18}{]}, \emph{parallel}
+{[}\protect\hyperlink{ref-R-parallel}{19}{]}, \emph{plyr}
+{[}\protect\hyperlink{ref-R-dplyr}{4},\protect\hyperlink{ref-R-plyr}{20}{]},
+\emph{png} {[}\protect\hyperlink{ref-R-png}{21}{]}, \emph{purrr}
+{[}\protect\hyperlink{ref-R-purrr}{22}{]}, \emph{readr}
+{[}\protect\hyperlink{ref-R-readr}{23}{]}, \emph{rmarkdown}
+{[}\protect\hyperlink{ref-R-rmarkdown_a}{24},\protect\hyperlink{ref-R-rmarkdown_b}{25}{]},
+\emph{Rmisc} {[}\protect\hyperlink{ref-R-Rmisc}{26}{]}, \emph{rticles}
+{[}\protect\hyperlink{ref-R-rticles}{27}{]}, \emph{splines}
+{[}\protect\hyperlink{ref-R-splines}{28}{]}, \emph{stringr}
+{[}\protect\hyperlink{ref-R-stringr}{29}{]}, \emph{tibble}
+{[}\protect\hyperlink{ref-R-tibble}{30}{]}, \emph{tidyr}
+{[}\protect\hyperlink{ref-R-tidyr}{31}{]}, and \emph{tidyverse}
+{[}\protect\hyperlink{ref-R-tidyverse}{32}{]} for all our analyses.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -206,13 +326,159 @@ We used R (Version 4.0.3; R Core Team, 2020) and the R-package \emph{papaja} (Ve
 \setlength{\leftskip}{0.5in}
 
 \hypertarget{refs}{}
-\leavevmode\hypertarget{ref-R-papaja}{}%
-Aust, F., \& Barth, M. (2020). \emph{papaja: Create APA manuscripts with R Markdown}. Retrieved from \url{https://github.com/crsh/papaja}
-
 \leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+1. R Core Team. R: A language and environment for statistical computing.
+Vienna, Austria: R Foundation for Statistical Computing; 2020.
+Available: \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-R-bookdown}{}%
+2. Xie Y. Bookdown: Authoring books and technical documents with R
+markdown. Boca Raton, Florida: Chapman; Hall/CRC; 2016. Available:
+\url{https://github.com/rstudio/bookdown}
+
+\leavevmode\hypertarget{ref-R-citr}{}%
+3. Aust F. Citr: 'RStudio' add-in to insert markdown citations. 2019.
+Available: \url{https://CRAN.R-project.org/package=citr}
+
+\leavevmode\hypertarget{ref-R-dplyr}{}%
+4. Wickham H, François R, Henry L, Müller K. Dplyr: A grammar of data
+manipulation. 2020. Available:
+\url{https://CRAN.R-project.org/package=dplyr}
+
+\leavevmode\hypertarget{ref-R-forcats}{}%
+5. Wickham H. Forcats: Tools for working with categorical variables
+(factors). 2020. Available:
+\url{https://CRAN.R-project.org/package=forcats}
+
+\leavevmode\hypertarget{ref-R-gamlss}{}%
+6. Rigby RA, Stasinopoulos DM. Generalized additive models for location,
+scale and shape,(with discussion). Applied Statistics. 2005;54.3:
+507--554.
+
+\leavevmode\hypertarget{ref-R-gamlss.data}{}%
+7. Stasinopoulos M, Rigby B, De Bastiani F. Gamlss.data: GAMLSS data.
+2019. Available: \url{https://CRAN.R-project.org/package=gamlss.data}
+
+\leavevmode\hypertarget{ref-R-gamlss.dist}{}%
+8. Stasinopoulos M, Rigby R. Gamlss.dist: Distributions for generalized
+additive models for location scale and shape. 2020. Available:
+\url{https://CRAN.R-project.org/package=gamlss.dist}
+
+\leavevmode\hypertarget{ref-R-ggplot2}{}%
+9. Wickham H. Ggplot2: Elegant graphics for data analysis.
+Springer-Verlag New York; 2016. Available:
+\url{https://ggplot2.tidyverse.org}
+
+\leavevmode\hypertarget{ref-R-ggpubr}{}%
+10. Kassambara A. Ggpubr: 'Ggplot2' based publication ready plots. 2020.
+Available: \url{https://CRAN.R-project.org/package=ggpubr}
+
+\leavevmode\hypertarget{ref-R-ggthemes}{}%
+11. Arnold JB. Ggthemes: Extra themes, scales and geoms for 'ggplot2'.
+2019. Available: \url{https://CRAN.R-project.org/package=ggthemes}
+
+\leavevmode\hypertarget{ref-R-gridExtra}{}%
+12. Auguie B. GridExtra: Miscellaneous functions for "grid" graphics.
+2017. Available: \url{https://CRAN.R-project.org/package=gridExtra}
+
+\leavevmode\hypertarget{ref-R-kableExtra}{}%
+13. Zhu H. KableExtra: Construct complex table with 'kable' and pipe
+syntax. 2020. Available:
+\url{https://CRAN.R-project.org/package=kableExtra}
+
+\leavevmode\hypertarget{ref-R-knitr}{}%
+14. Xie Y. Dynamic documents with R and knitr. 2nd ed. Boca Raton,
+Florida: Chapman; Hall/CRC; 2015. Available:
+\url{https://yihui.org/knitr/}
+
+\leavevmode\hypertarget{ref-R-lattice}{}%
+15. Sarkar D. Lattice: Multivariate data visualization with r. New York:
+Springer; 2008. Available: \url{http://lmdvr.r-forge.r-project.org}
+
+\leavevmode\hypertarget{ref-R-MASS}{}%
+16. Venables WN, Ripley BD. Modern applied statistics with s. Fourth.
+New York: Springer; 2002. Available:
+\url{http://www.stats.ox.ac.uk/pub/MASS4/}
+
+\leavevmode\hypertarget{ref-R-nlme}{}%
+17. Pinheiro J, Bates D, DebRoy S, Sarkar D, R Core Team. nlme: Linear
+and nonlinear mixed effects models. 2020. Available:
+\url{https://CRAN.R-project.org/package=nlme}
+
+\leavevmode\hypertarget{ref-R-papaja}{}%
+18. Aust F, Barth M. papaja: Create APA manuscripts with R Markdown.
+2020. Available: \url{https://github.com/crsh/papaja}
+
+\leavevmode\hypertarget{ref-R-parallel}{}%
+19. R Core Team. R: A language and environment for statistical
+computing. Vienna, Austria: R Foundation for Statistical Computing;
+2020. Available: \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-R-plyr}{}%
+20. Wickham H. The split-apply-combine strategy for data analysis.
+Journal of Statistical Software. 2011;40: 1--29. Available:
+\url{http://www.jstatsoft.org/v40/i01/}
+
+\leavevmode\hypertarget{ref-R-png}{}%
+21. Urbanek S. Png: Read and write png images. 2013. Available:
+\url{https://CRAN.R-project.org/package=png}
+
+\leavevmode\hypertarget{ref-R-purrr}{}%
+22. Henry L, Wickham H. Purrr: Functional programming tools. 2020.
+Available: \url{https://CRAN.R-project.org/package=purrr}
+
+\leavevmode\hypertarget{ref-R-readr}{}%
+23. Wickham H, Hester J. Readr: Read rectangular text data. 2020.
+Available: \url{https://CRAN.R-project.org/package=readr}
+
+\leavevmode\hypertarget{ref-R-rmarkdown_a}{}%
+24. Xie Y, Allaire JJ, Grolemund G. R markdown: The definitive guide.
+Boca Raton, Florida: Chapman; Hall/CRC; 2018. Available:
+\url{https://bookdown.org/yihui/rmarkdown}
+
+\leavevmode\hypertarget{ref-R-rmarkdown_b}{}%
+25. Xie Y, Dervieux C, Riederer E. R markdown cookbook. Boca Raton,
+Florida: Chapman; Hall/CRC; 2020. Available:
+\url{https://bookdown.org/yihui/rmarkdown-cookbook}
+
+\leavevmode\hypertarget{ref-R-Rmisc}{}%
+26. Hope RM. Rmisc: Rmisc: Ryan miscellaneous. 2013. Available:
+\url{https://CRAN.R-project.org/package=Rmisc}
+
+\leavevmode\hypertarget{ref-R-rticles}{}%
+27. Allaire J, Xie Y, R Foundation, Wickham H, Journal of Statistical
+Software, Vaidyanathan R, et al. Rticles: Article formats for r
+markdown. 2020. Available:
+\url{https://CRAN.R-project.org/package=rticles}
+
+\leavevmode\hypertarget{ref-R-splines}{}%
+28. R Core Team. R: A language and environment for statistical
+computing. Vienna, Austria: R Foundation for Statistical Computing;
+2020. Available: \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-R-stringr}{}%
+29. Wickham H. Stringr: Simple, consistent wrappers for common string
+operations. 2019. Available:
+\url{https://CRAN.R-project.org/package=stringr}
+
+\leavevmode\hypertarget{ref-R-tibble}{}%
+30. Müller K, Wickham H. Tibble: Simple data frames. 2020. Available:
+\url{https://CRAN.R-project.org/package=tibble}
+
+\leavevmode\hypertarget{ref-R-tidyr}{}%
+31. Wickham H. Tidyr: Tidy messy data. 2020. Available:
+\url{https://CRAN.R-project.org/package=tidyr}
+
+\leavevmode\hypertarget{ref-R-tidyverse}{}%
+32. Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, et
+al. Welcome to the tidyverse. Journal of Open Source Software. 2019;4:
+1686.
+doi:\href{https://doi.org/10.21105/joss.01686}{10.21105/joss.01686}
 
 \endgroup
 
+\nolinenumbers
+
 
 \end{document}
+
