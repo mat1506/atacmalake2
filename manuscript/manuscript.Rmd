@@ -1,69 +1,71 @@
 ---
-title             : "The title"
-shorttitle        : "Title"
-
-author: 
-  - name          : "First Author"
-    affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
-    address       : "Postal address"
-    email         : "my@email.com"
-    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
-      - Conceptualization
-      - Writing - Original Draft Preparation
-      - Writing - Review & Editing
-  - name          : "Ernst-August Doelle"
-    affiliation   : "1,2"
-    role:
-      - Writing - Review & Editing
-
-affiliation:
-  - id            : "1"
-    institution   : "Wilhelm-Wundt-University"
-  - id            : "2"
-    institution   : "Konstanz Business School"
-
-authornote: |
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-  Enter author note here.
+title             : "The recent history of high elevation Lagunas Miscanti and Miñiques, Chilean Altiplano, as revealed by biomarker study"
+shorttitle        : "high elevation Lagunas Miscanti and Miñiques"
+author:
+  - name: Matías Frugone-Álvarez^1,2^
+    email: matutefrugone@gmail.com
+    affiliation: deuc,ieb
+    footnote: 1
+  - name: Claudio Latorre
+    email:
+    affiliation: deuc,ieb
+  - name: Sergio Contreras
+    email: 
+    affiliation: uccs,ciba,geup
+  - name: Antonio Delgado-Huertas
+    email:
+    affiliation: iact
+address:
+  - code: deuc
+    address: Departamento de Ecología & Centro UC Desierto de Atacama, Pontificia Universidad Católica de Chile, Santiago, Chile.
+  - code: ieb
+    address: Instituto de Ecología y Biodiversidady (IEB), Santiago, Chile
+  - code: uccs
+    address: La Universidad Católica de la Santísima Concepción (UCSC)
+  - code: ciba
+    address: Centro de Investigación en Biodiversidad y Ambientes Sustentables (CIBAS), Chile 
+  - code: geup
+    address: Department of Geology and Environmental Science, University of Pittsburgh, Pittsburgh, USA      
+  - code: iact
+    address: Instituto Andaluz de Ciencias de la Tierra (CSIC-UGR), Granada, Spain
+footnote:
+  - code: 1
+    text: "Corresponding Author"
 
 abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by  this particular study.
-  
-  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  Situated in the Chilean Altiplano, the neighboring lakes of Miscanti and Miñiques are of interest due to their unique location and ability to furnish detailed continuous high elevation biogeochemical records. Accordingly, sediment cores were acquired for centennial scale investigation of regional climates of this region of South America over the Holocene. Coring in the two lakes spanned two different but overlapping time periods that extend from 2500 BCE to 1905 CE as determined by 14C dating supported by U/Th and 210Pb/137Cs measurements. Our study has revealed distinct limnological phases within the lakes that are characterized by markedly different biomarker contents. The contributions of macrophytes and algae were determined by the relative contributions of multiple source-diagnostic compounds (i.e. n-C17 and n-C23). Further, core glycerol dialkyl glycerol tetraethers (GDGTs) were used to examine physical changes in the lake such as salinity (ACE index) and lake level (thaum). Finally, periods of likely euxinic conditions were identified based on the presence of recently described S-GDGTs. In Laguna Miñiques, the earliest period (2500-1910 BCE) studied was characterized by a transition from low to high lake levels ending with a sharp increase in salinity and collapse of stratification and euxinia. This time was followed by an extended period (1910-139 BCE) of high salinity that saw a decline of aquatic macrophytes and rise of unicellular algae. This picture reversed in the final period (139 BCE-1670 CE) where the molecular records suggest that salinity dropped sharply and stabilized, macrophytes recovered, and the relative contributions from algae declined. Complementing this record, Laguna Miscanti displays just two limnologically distinct periods. The first (212-920 CE) is revealed to be physically and chemically stable as in Miñiques, but with potential variations in productivity. The most recent time period (920-1905 CE) is shown to be a period of increasing salinity with episodic events of lake level change and euxinia. 
   
   <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "keywords"
 wordcount         : "X"
-
-bibliography      : ["r-references.bib"]
-
 floatsintext      : no
 figurelist        : no
-tablelist         : no
-footnotelist      : no
+tablelist         : yes
+footnotelist      : yes
 linenumbers       : yes
 mask              : no
 draft             : no
-
-documentclass     : "apa6"
+journal           : "Plos One"
+latex_engine      : xelatex
+documentclass     : "plos_article"
 classoption       : "man"
-output            : papaja::apa6_pdf
+output            : rticles::plos_article
+csl               : plos-one.csl
+bibliography      : ["r-references.bib"]
+link-citations: yes
+linkcolor: blue
+
 ---
 
-```{r setup, include = FALSE}
+```{r libraries, include=FALSE, message=FALSE, warning=FALSE}
+set.seed(42)
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE, dev="cairo_pdf", fig.width=4, fig.height=4, fig.asp = 0.618, cache = TRUE, fig.align = "center")
+library("rmarkdown")
+library("knitr")
+library("bookdown")
+library("citr")
+library("rticles")
 library("papaja")
 r_refs("r-references.bib")
 ```

@@ -1,0 +1,13 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+rmarkdown
+knitr
+bookdown
+citr
+rticles
+papaja
